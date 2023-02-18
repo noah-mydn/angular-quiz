@@ -1,0 +1,51 @@
+/* Import the Bootstrap Icons CSS file */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* Set the path to the font files */
+$bi-font-path: "./assets/bootstrap-icons/font" !default;
+
+/* Load the font files */
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("#{$bi-font-path}/fonts/bootstrap-icons.woff2") format("woff2"),
+       url("#{$bi-font-path}/fonts/bootstrap-icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+// Variables for colors
+$primary: #a1c4fd;
+$secondary_light:#aeace4;
+$secondary: #5957a3;
+$secondary_dark:#2b299c;
+$tertiary :#12233c;
+$accent: #b6b1d1;
+$dark-font-color: #c2e9fb;
+$light-font-color: #222222;
+$light-bg-color: linear-gradient(to top, $primary, $accent);
+$dark-bg-color: linear-gradient(90deg, $tertiary 10%, #050b42 90%);
+
+html,body {
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+// Light Mode
+body {
+  min-height: 100vh;
+  background-image: $light-bg-color;
+  color: $light-font-color;
+}
+
+// Dark mode
+.dark-mode {
+  background-image: $dark-bg-color;
+  color: $dark-font-color;
+}
+
+/* Styles for dark mode */
+
+
+
