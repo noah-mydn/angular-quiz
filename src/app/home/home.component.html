@@ -51,12 +51,22 @@
   </g>
 </svg>
    <div class="mb-2 d-flex justify-content-center flex-column">
-      <label for="name" class="form-label">ENTER YOUR NAME</label>
-      <input type="text" class="form-control" id="name" placeholder="">
+      <label for="name" class="form-label" >ENTER YOUR NAME</label>
+      <input type="text" class="form-control" id="name" placeholder="" required autofocus [(ngModel)]="playerName"> 
    </div>
    <div class="d-flex justify-content-around px-2 mt-4">
-      <button type="submit" class="standard-btn">EASY</button>
-      <button type="submit" class="standard-btn">MEDIUM</button>
-      <button type="submit" class="standard-btn">HARD</button>
+      <button class="standard-btn" (click)="setDifficultyLevel('EASY')" >
+         EASY
+      </button>
+      <button class="standard-btn" (click)="setDifficultyLevel('MEDIUM')" >
+         MEDIUM
+      </button>
+      <button class="standard-btn" (click)="setDifficultyLevel('HARD')" >
+         HARD
+      </button>
    </div>
-</div>
+   
+   <div class="alert alert-danger mt-3 d-flex align-items-center alert-dismissible fade show" role="alert" *ngIf="isNameEmpty">
+      <i class="bi bi-exclamation-triangle-fill"></i>&nbsp;&nbsp;
+      <i>You must enter your name first to proceed!</i>&nbsp;&nbsp;
+   </div>

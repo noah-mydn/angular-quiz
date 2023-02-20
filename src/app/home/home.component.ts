@@ -1,5 +1,7 @@
-import { Component, HostListener, Input, Renderer2, ViewChild, ElementRef, AfterViewInit, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, HostListener, Renderer2, ViewChild, ElementRef, AfterViewInit, OnInit, AfterViewChecked } from '@angular/core';
 import anime from 'animejs/lib/anime.es.js';
+import { SharedService } from '../shared.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +16,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   thoth_logo_width : string = "110.24429mm";
   screenWidth : any = null;
   isSmallScreen : boolean = false;
+  playerName : string = '';
+  isNameEmpty : boolean = false;
+  isButtonClicked : boolean = false;
 
   private _isDarkMode : boolean = false;
 
-  @Input() set isDarkMode (value:boolean) {
+  set isDarkMode (value:boolean) {
     this._isDarkMode = value;
     this.setStrokeColor();
     this.setMode();
@@ -29,10 +34,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   svg_style_text :any;
   
   
-  constructor (private renderer: Renderer2) {
+  constructor (private renderer: Renderer2, private sharedService : SharedService, private route: Router) {
   }
   
   ngOnInit() : void{
+    this.isNameEmpty= false;
+
     anime({
       targets: '#thoth path',
       strokeDashoffset: [anime.setDashoffset, 0],
@@ -53,6 +60,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.thoth_logo_width="80.24429mm";
       }
 
+      this.sharedService.isDarkMode.subscribe(val => this.isDarkMode = val);
 
   }
 
@@ -81,6 +89,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
     else {
       this.renderer.removeClass(this.home_container.nativeElement,'dark');
     }
+  }
+
+  setDifficultyLevel(level : string) {
+    this.isButtonClicked=true;
+    if(this.playerName) {
+      this.isNameEmpty = false;
+      this.sharedService.setPlayerPreference(this.playerName,level);
+      this.route.navigate(['quiz']);
+    }
+    if(this.playerName === '') {
+      this.isNameEmpty= true;
+    }
+    console.log(this.isNameEmpty);
+    console.log(this.playerName);
+  }
+
+  ngDoCheck() {
+    if(this.isButtonClicked) {
+      if(this.playerName) {
+        this.isNameEmpty = false;
+      }
+      else {
+        this.isNameEmpty= true;
+        }
+    }
+   
   }
 
 

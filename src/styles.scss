@@ -20,11 +20,12 @@ $secondary_light:#aeace4;
 $secondary: #5957a3;
 $secondary_dark:#2b299c;
 $tertiary :#12233c;
+$tertiary_dark:#070b13;
 $accent: #b6b1d1;
 $dark-font-color: #c2e9fb;
 $light-font-color: #222222;
 $light-bg-color: linear-gradient(to top, $primary, $accent);
-$dark-bg-color: linear-gradient(90deg, $tertiary 10%, #050b42 90%);
+$dark-bg-color: linear-gradient(90deg, $tertiary 10%, #120542 90%);
 
 html,body {
   box-sizing: border-box;

@@ -1,1 +1,29 @@
-<p>quiz-content works!</p>
+<div class="quiz-container" #quiz_container id="quiz-container">
+    <div class="quiz-body" *ngFor="let quiz of quizObjects; let i=index;" id="quiz-body"
+    [hidden]="i !== currentQuestionIndex">
+        <div class="d-flex justify-content-between align-items-center">
+            <span>Question {{i+1}}/20</span>
+            <span>Computer Science ({{difficultyLevel}})</span>
+        </div>
+        <div class="quiz-body-content" id="quiz-body-content">
+            <div class="mt-2">
+                <h5 [innerHTML]="quiz.question"></h5>
+            </div>
+            <div class="mb-3 mt-4">
+                <div class="choice-block" *ngFor="let choice of (quiz.choices.sort())" [id]="choice"
+                [style.pointer-events]="choiceMade ? 'none' : 'auto'" [style.opacity]="choiceMade ? 0.5 : 1"
+                
+                >
+                    <small [innerHTML]="choice"></small>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-btn-container">
+            <button class="btn quiz-btn" [disabled]="currentQuestionIndex === 0"
+            (click)="goToPrevQuestion()"
+            >Prev</button>
+            <button class="btn quiz-btn" [disabled]="currentQuestionIndex === quizObjects.length-1"
+            (click)="goToNextQuestion()">Next</button>
+        </div>
+    </div>
+</div>

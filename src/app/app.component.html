@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-end align-items-center py-2 px-2">
-        <button class="rounded-icon-btn">
-            <i class="bi bi-question-lg"></i>
-        </button>
+            <button class="rounded-icon-btn" (click)="navigateToHowTo()">
+                <i class="bi bi-question-lg"></i>
+            </button>
         <button class="rounded-icon-btn" (click)="modeOnToggle()">
             <i class={{modeIcon}}></i>
         </button>
@@ -11,5 +11,7 @@
         </button>
        
     </div>
-    <app-home [isDarkMode]="isDarkMode"></app-home>
+    <!-- <app-home [isDarkMode]="isDarkMode"></app-home>
+    <app-quiz-content></app-quiz-content> -->
+    <router-outlet></router-outlet>
 </div>

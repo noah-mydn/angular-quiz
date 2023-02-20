@@ -1,4 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import {Router} from '@angular/router';
+import { SharedService } from './shared.service';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +12,20 @@ export class AppComponent implements OnInit {
 
   
   
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private route: Router, private sharedService : SharedService) {
+    this.sharedService.isDarkMode.next(this.isDarkMode);
+  }
   
 
     title : string = "THOTH";
-    isDarkMode : boolean = true;
-    isVolumeEnable : boolean = true;
+    isDarkMode : boolean = false;
+    isVolumeEnable : boolean = false;
     volumeIcon : string = "bi bi-volume-up-fill";
     modeIcon : string = "bi bi-sun-fill";
     body = document.querySelector('body');
 
     audio : any = new Audio();
+    
 
     ngOnInit() : void {
 
@@ -46,7 +51,9 @@ export class AppComponent implements OnInit {
       }
     }
 
-
+    navigateToHowTo() : void {
+      this.route.navigate(['HowTo']);
+    }
 
     volumeOnClick (): void{
       this.isVolumeEnable= !this.isVolumeEnable;
@@ -67,6 +74,8 @@ export class AppComponent implements OnInit {
     modeOnToggle () : void {
      
         this.isDarkMode = !this.isDarkMode;
+        this.sharedService.isDarkMode.next(this.isDarkMode);
+        
         if(this.isDarkMode) {
           this.modeIcon = "bi bi-moon-fill";
           this.renderer.addClass(this.body,'dark-mode');
