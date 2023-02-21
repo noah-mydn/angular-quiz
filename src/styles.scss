@@ -1,6 +1,7 @@
 /* Import the Bootstrap Icons CSS file */
 @import "~bootstrap-icons/font/bootstrap-icons.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 /* Set the path to the font files */
 $bi-font-path: "./assets/bootstrap-icons/font" !default;
 
@@ -12,6 +13,10 @@ $bi-font-path: "./assets/bootstrap-icons/font" !default;
   font-weight: normal;
   font-style: normal;
 }
+
+//main-fonts 
+$font-one : 'Wallpoet',serif;
+$font-two: 'Play', sans-serif;
 
 
 // Variables for colors
@@ -46,7 +51,8 @@ body {
   color: $dark-font-color;
 }
 
-/* Styles for dark mode */
+
+
 
 
 

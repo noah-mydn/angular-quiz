@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     isDarkMode : boolean = false;
     isVolumeEnable : boolean = false;
     volumeIcon : string = "bi bi-volume-up-fill";
-    modeIcon : string = "bi bi-sun-fill";
+    modeIcon : string = "bi bi-moon-fill";
     body = document.querySelector('body');
 
     audio : any = new Audio();
@@ -30,12 +30,12 @@ export class AppComponent implements OnInit {
     ngOnInit() : void {
 
       if(this.isDarkMode) {
-        this.modeIcon = "bi bi-moon-fill";
+        this.modeIcon = "bi bi-sun-fill";
         this.renderer.addClass(this.body,'dark-mode');
       }
 
       else {
-        this.modeIcon = "bi bi-sun-fill";
+        this.modeIcon = "bi bi-moon-fill";
         this.renderer.removeClass(this.body,'dark-mode')
       }
 
@@ -77,12 +77,12 @@ export class AppComponent implements OnInit {
         this.sharedService.isDarkMode.next(this.isDarkMode);
         
         if(this.isDarkMode) {
-          this.modeIcon = "bi bi-moon-fill";
+          this.modeIcon = "bi bi-sun-fill";
           this.renderer.addClass(this.body,'dark-mode');
         }
 
         else {
-          this.modeIcon = "bi bi-sun-fill";
+          this.modeIcon = "bi bi-moon-fill";
           this.renderer.removeClass(this.body,'dark-mode')
         }
 

@@ -1,4 +1,4 @@
-<div class="home-container" #home_container>
+<div class="home-container" [ngClass]="{'dark': isDarkMode}">
    <svg
    [attr.width]="thoth_logo_width"
    height="46.713463mm"

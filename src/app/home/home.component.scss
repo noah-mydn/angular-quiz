@@ -19,7 +19,7 @@
         
         
         label {
-            font-family: 'Wallpoet';
+            font-family: $font-one;
             letter-spacing: 0.2em;
             font-size: 2em;
             margin-bottom: 1.5em;
@@ -58,6 +58,7 @@
             transform: translateY(0);
             transition: transform 0.5s linear ease-in-out;
             border: 2px solid $secondary;
+            font-family: $font-two;
 
             &:hover, &:focus {
                 box-shadow: 0 4px 4px 2px $secondary;

@@ -1,7 +1,7 @@
-import { Component, Renderer2, ViewChild,ElementRef } from '@angular/core';
+import { Component, Renderer2} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { SharedService } from '../shared.service';
-import { map } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-quiz-content',
@@ -11,28 +11,24 @@ import { map } from 'rxjs';
 export class QuizContentComponent {
 
   playerName : string = "";
-  difficultyLevel : string ="EASY";
+  difficultyLevel : string ="";
   quizObjects : any[];
   currentQuestionIndex:number=0;
   isLoading : boolean = true;
-  choiceMade : boolean = false;
+  totalScore : number = 0;
 
   private _isDarkMode : boolean = false;
 
   set isDarkMode (value:boolean) {
     this._isDarkMode = value;
-    this.setMode();
   }
 
   get isDarkMode() {
     return this._isDarkMode;
   }
 
-  //ElementRef for quiz_container to manipulate class if it's darkmode
-  @ViewChild('quiz_container', {static:true}) quiz_container!:ElementRef;
-
     constructor(private sharedService: SharedService, private renderer: Renderer2, private http: HttpClient,
-     ) {}
+     private route:Router) {}
 
     ngOnInit() : void {
 
@@ -45,7 +41,6 @@ export class QuizContentComponent {
         case "HARD" : this.fetchHardQuiz(); break;
 
         default:
-          this.difficultyLevel="EASY";
           this.fetchEasyQuiz();
       }
 
@@ -57,23 +52,8 @@ export class QuizContentComponent {
 
       //Assigning playerName and chosen level via Service
       this.playerName = this.sharedService.playerName;
-      this.difficultyLevel= this.sharedService.difficultyLevel;
+      this.difficultyLevel= this.sharedService.difficultyLevel; 
 
-      if(this.isLoading===false) {
-        
-       }
-     
-    }
-
-    //For DarkMode
-    private setMode() {
-      if(this.isDarkMode) {
-        this.renderer.addClass(this.quiz_container.nativeElement,'dark');
-      }
-  
-      else {
-        this.renderer.removeClass(this.quiz_container.nativeElement,'dark');
-      }
     }
 
     //For Api Calls
@@ -88,7 +68,8 @@ export class QuizContentComponent {
                   const choices = [...incorrect_answers,correct_answer];
                   return {...question,choices};
               })
-                console.log(this.quizObjects);});
+                //console.log(this.quizObjects);
+              });
                
       this.isLoading=false;
     }
@@ -104,7 +85,7 @@ export class QuizContentComponent {
                   const choices = [...incorrect_answers,correct_answer];
                   return {...question,choices};
               })
-                console.log(this.quizObjects);
+                //console.log(this.quizObjects);
                })
       this.isLoading=false;
     }
@@ -120,7 +101,7 @@ export class QuizContentComponent {
                     const choices = [...incorrect_answers,correct_answer];
                     return {...question,choices};
                 })
-                  console.log(this.quizObjects);
+                  //console.log(this.quizObjects);
                 })
       this.isLoading=false;
     }
@@ -134,6 +115,63 @@ export class QuizContentComponent {
 
     //NextQuestion
     goToNextQuestion(): void {
-      this.currentQuestionIndex=this.currentQuestionIndex+1;
+      if (this.currentQuestionIndex === this.quizObjects.length - 1) {
+        //Transferring Total Score via SharedService
+        this.sharedService.totalScore.next(this.totalScore);
+        this.route.navigate(['quizComplete']);
+      } else {
+        this.currentQuestionIndex = this.currentQuestionIndex + 1;
+      }
+      console.log(this.currentQuestionIndex);
+      console.log(this.quizObjects.length - 1);
     }
+    
+    //After the selction is made
+    onChoiceSelected(quiz: any, choice: string, index:number) {
+    
+      const CORRECT_ANSWER = quiz.correct_answer;
+      const selectedEl = document.getElementById(choice+index);
+  
+      if (choice === CORRECT_ANSWER) {
+          this.totalScore= this.totalScore+5;
+          selectedEl.style.backgroundColor = 'green';
+          selectedEl.style.pointerEvents='none';
+  
+          for (var i = 0; i < quiz.incorrect_answers.length; i++) {
+              const el = document.getElementById(quiz.incorrect_answers[i]+index);
+              
+              el.classList.add('disabled-dark-selection');
+              el.classList.add('disabled');
+          }
+
+          //console.log("Total Score:",this.totalScore);
+      } else {
+          selectedEl.style.backgroundColor = 'red';
+          selectedEl.style.pointerEvents='none';
+
+          const correctEl = document.getElementById(CORRECT_ANSWER+index);
+          correctEl.style.backgroundColor = 'green';
+          correctEl.style.pointerEvents='none';
+  
+          if(quiz.incorrect_answers.length>1) {
+            const otherSelections = quiz.incorrect_answers.filter((selection: string) => {
+              return selection !== choice;
+          });
+
+          for (var i = 0; i < otherSelections.length; i++) {
+            const el = document.getElementById(otherSelections[i]+index);
+            
+            el.classList.add('disabled-dark-selection');
+            el.classList.add('disabled');
+
+        }
+        //console.log("Unchosen wrong selections:",otherSelections);
+          }
+
+         
+          // console.log("Chosen Selection",correctEl);
+          // console.log("Selected choice",selectedEl);
+      }
+  }
+  
 }

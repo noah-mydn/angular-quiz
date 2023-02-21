@@ -8,14 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { HowToComponent } from './how-to/how-to.component';
 import { QuizContentComponent } from './quiz-content/quiz-content.component';
 import { QuizCompleteComponent } from './quiz-complete/quiz-complete.component';
+import { ErrorComponent } from './error/error.component';
 import { RouterModule,Routes } from '@angular/router';
 
 const appRoute : Routes = [ 
-  {path:'', redirectTo: 'Home', pathMatch:'full'},
-  {path:'Home', component: HomeComponent},
+  {path:'', redirectTo: 'home', pathMatch:'full'},
+  {path:'home', component: HomeComponent},
   {path:'HowTo', component:HowToComponent},
   {path:'quiz', component: QuizContentComponent},
-  {path:'QuizComplete', component: QuizCompleteComponent},
+  {path:'quizComplete', component: QuizCompleteComponent},
+  {path:'**', component:ErrorComponent}
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const appRoute : Routes = [
     HomeComponent,
     HowToComponent,
     QuizContentComponent,
-    QuizCompleteComponent
+    QuizCompleteComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,29 @@
-<p>quiz-complete works!</p>
+<div *ngIf="playerName!=''">
+    <div class="quiz-complete" id="quizComplete">
+        <h1 [ngStyle]="{'color': isDarkMode? '#a1c4fd' : '#2b299c' }">THANKS FOR TAKING THE QUIZ!</h1>
+        <div class="information" [ngClass]="{'dark': isDarkMode}">
+            <h2>{{greeting}} {{playerName}}</h2>
+            <h5>Here is the report of your result:</h5>
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="titles">
+                    <h6>Total Questions</h6>
+                    <h6>Correctly Answers</h6>
+                    <h6>Incorrect Answers</h6>
+                    <br/><br/>
+                    <h4>Total Score</h4>
+                </div>
+                <div class="results">
+                    <h6>20</h6>
+                    <h6>{{totalScore/5}}</h6>
+                    <h6>{{(100 - totalScore)/5}}</h6>
+                    <br/><br/>
+                    <h4>{{totalScore}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="playerName===''">
+    <app-error/>
+</div>
+

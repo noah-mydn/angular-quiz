@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   set isDarkMode (value:boolean) {
     this._isDarkMode = value;
     this.setStrokeColor();
-    this.setMode();
   }
 
   get isDarkMode() {
@@ -66,8 +65,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() : void {
     this.setStrokeColor();
-    this.setMode();
-
   }
 
   private setStrokeColor() {
@@ -81,15 +78,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private setMode() {
-    if(this.isDarkMode) {
-      this.renderer.addClass(this.home_container.nativeElement,'dark');
-    }
-
-    else {
-      this.renderer.removeClass(this.home_container.nativeElement,'dark');
-    }
-  }
 
   setDifficultyLevel(level : string) {
     this.isButtonClicked=true;

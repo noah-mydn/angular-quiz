@@ -1,0 +1,54 @@
+@import '../../styles.scss';
+
+.quiz-complete {
+    
+    width: auto;
+    height: 100%;
+    min-height: 80vh;
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        font-family: $font-one;
+    }
+
+    .information {
+        margin-top: 2em;
+        padding: 2em;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 1.5em;
+        font-family: $font-two;
+        
+    }
+
+    .information h2 {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $secondary;
+    }
+
+    .information h5 {
+        margin-top: 2em;
+        font-weight: 400;
+    }
+}
+
+.dark {
+        background-color: $tertiary_dark !important;
+
+       h5{
+        color: $primary;
+       }
+}
+
+  @media only screen and (max-width:600px) {
+    .quiz-complete h1 {
+        text-align: center;
+    }
+  }
+
+
+

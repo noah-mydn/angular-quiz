@@ -9,6 +9,7 @@ export class SharedService {
   playerName : string = "";
   difficultyLevel : string ="";
   isDarkMode = new BehaviorSubject<boolean>(false);
+  totalScore = new BehaviorSubject<number>(0);
 
   constructor() {
       
@@ -18,4 +19,5 @@ export class SharedService {
     this.playerName = playerName;
     this.difficultyLevel = difficultyLevel;
    }
+
 }
