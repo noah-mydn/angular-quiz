@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { SharedService } from '../shared.service';
 import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-quiz-complete',
   templateUrl: './quiz-complete.component.html',
   styleUrls: ['./quiz-complete.component.scss']
 })
+
 export class QuizCompleteComponent {
 
   greeting : string ="";
@@ -21,6 +23,7 @@ export class QuizCompleteComponent {
     this.sharedService.totalScore.subscribe(val => this.totalScore = val);
     this.playerName = this.sharedService.playerName;
 
+    //Gretting text based on score
     if(this.totalScore===0) {
       this.greeting="Too bad, "
     }
@@ -31,13 +34,14 @@ export class QuizCompleteComponent {
       this.greeting="Good job, "
     }
     else if(this.totalScore > 50 && this.totalScore < 70) {
-      this.greeting="Well done, "
+      this.greeting="Well done, ";
     }
     else if(this.totalScore > 70 && this.totalScore < 90) {
-      this.greeting="Excellent, "
+      this.greeting="Excellent, ";
+      
     }
     else {
-      this.greeting="Unbelievable, "
+      this.greeting="Unbelievable, ";
     }
   }
 

@@ -1,5 +1,5 @@
 <div *ngIf="playerName!=''">
-    <div class="quiz-complete" id="quizComplete">
+    <div class="quiz-complete" id="quizComplete" #complete>
         <h1 [ngStyle]="{'color': isDarkMode? '#a1c4fd' : '#2b299c' }">THANKS FOR TAKING THE QUIZ!</h1>
         <div class="information" [ngClass]="{'dark': isDarkMode}">
             <h2>{{greeting}} {{playerName}}</h2>
