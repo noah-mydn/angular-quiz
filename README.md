@@ -62,9 +62,9 @@ Throughout development of this website, I used **Git** for version control syste
 [View Live Demo]()
 
 ### Screenshots
-[Light mode of the website in mobile](./assets/images/home-light);
-[Dark mode of the website in mobile](./assets/images/home-dark);
-[Light mode of the website in desktop](./assets/images/Thoth-light-lg);
-[Dark mode of the website in desktop](./assets/images/Thoth-dark-lg);
+![Light mode of the website in mobile](./assets/images/home-light);
+![Dark mode of the website in mobile](./assets/images/home-dark);
+![Light mode of the website in desktop](./assets/images/Thoth-light-lg);
+![Dark mode of the website in desktop](./assets/images/Thoth-dark-lg);
 
  
