@@ -62,10 +62,11 @@ Throughout development of this website, I used **Git** for version control syste
 [View Live Demo]()
 
 ### Screenshots
-<img src="./assets/images/home-light.png" alt="Light mode of the website in mobile"/>
-<img src="./assets/images/home-dark.png" alt="Dark mode of the website in mobile"/>
-<img src="./assets/images/Thoth-light-lg.png" alt="Light mode of the website in desktop"/>
-<img src="./assets/images/Thoth-dark-lg.png" alt="Dark mode of the website in desktop"/>
+![Light mode of the website in mobile](src/assets/images/home-light.png)
+![Dark mode of the website in mobile](src/assets/images/home-dark.png)
+![Light mode of the website in desktop](src/assets/images/Thoth-light-lg.png)
+![Dark mode of the website in desktop](src/assets/images/Thoth-dark-lg.png)
+
 
 
  
