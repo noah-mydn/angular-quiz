@@ -3,8 +3,7 @@
 .quiz-complete {
     
     width: auto;
-    height: 100%;
-    min-height: 80vh;
+    min-height: 50vh;
     margin: 1em;
     display: flex;
     justify-content: center;
@@ -34,7 +33,40 @@
         margin-top: 2em;
         font-weight: 400;
     }
+
 }
+
+.btn-container {
+    width: 100%;
+
+    .back-to-home-btn {
+        background-color: none;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: 2px solid $secondary;
+        padding: 0.8em 1.5em;
+        color: $secondary;
+        font-weight: bold;
+        font-family: $font-two;
+        transform: translateY(0);
+        transition: transform 1s ease-in-out;
+    }
+    
+    .back-to-home-btn:hover {
+        transform: translateY(-10px);
+    }
+    
+}
+
+.dark-btn {
+    border: 2px solid $primary !important;
+    color:$dark-font-color !important;
+}
+
+
+
+
+
 
 .dark {
         background-color: $tertiary_dark !important;

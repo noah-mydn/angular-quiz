@@ -1,17 +1,17 @@
-<div class="container-fluid main-container">
+<div class="container-fluid" [@routerSlideAnimation]="outlet.isActivated ? outlet.activatedRoute : null">
     <div class="d-flex justify-content-end align-items-center py-2 px-2">
-            <button class="rounded-icon-btn" (click)="navigateToHowTo()">
+            <button class="rounded-icon-btn" (click)="navigateToHowTo()" [ngClass]="{'dark-btn':isDarkMode}">
                 <i class="bi bi-question-lg"></i>
             </button>
-        <button class="rounded-icon-btn" (click)="modeOnToggle()">
+        <button class="rounded-icon-btn" (click)="modeOnToggle()" [ngClass]="{'dark-btn':isDarkMode}">
             <i class={{modeIcon}}></i>
         </button>
-        <button class="rounded-icon-btn" (click)="volumeOnClick()">
+        <button class="rounded-icon-btn" (click)="volumeOnClick()" [ngClass]="{'dark-btn':isDarkMode}">
             <i class={{volumeIcon}}></i>
         </button>
        
     </div>
     <!-- <app-home [isDarkMode]="isDarkMode"></app-home>
     <app-quiz-content></app-quiz-content> -->
-    <router-outlet></router-outlet>
+    <router-outlet #outlet="outlet"></router-outlet>
 </div>

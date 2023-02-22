@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() : void{
     this.isNameEmpty= false;
 
+    //Animation from https://animejs.com/documentation/#lineDrawing
     anime({
       targets: '#thoth path',
       strokeDashoffset: [anime.setDashoffset, 0],

@@ -1,9 +1,10 @@
 @import '../../styles.scss';
+@import '../app.component.scss';
 
 .quiz-container {
     width: 100%;
     height: 100%;
-    min-height: 85vh;
+    min-height: 80vh;
     margin: 1em auto 0 auto;
     
 
@@ -68,7 +69,7 @@
       }
 
     #quiz-body-content div h5{
-        color:$accent;
+        color:$secondary_light;
     }
 
     #quiz-body-content .choice-block {

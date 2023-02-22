@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../shared.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-quiz-complete',
@@ -13,7 +14,7 @@ export class QuizCompleteComponent {
   totalScore : number = 0;
   isDarkMode : boolean = false;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, private router: Router) {}
 
   ngOnInit() : void{
     this.sharedService.isDarkMode.subscribe(val => this.isDarkMode = val);
@@ -36,7 +37,11 @@ export class QuizCompleteComponent {
       this.greeting="Excellent, "
     }
     else {
-      this.greeting="Superb, "
+      this.greeting="Unbelievable, "
     }
+  }
+
+  navigateToHome() : void {
+    this.router.navigate(['/home']);
   }
 }

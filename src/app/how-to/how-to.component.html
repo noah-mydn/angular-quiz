@@ -1,1 +1,15 @@
-<p>how-to works!</p>
+<div class='container-fluid'>
+    <button class="rounded-icon-btn" (click)="navigateToPreviousPage()" [ngClass]="{'dark-btn':isDarkMode}">
+        <i class="bi bi-arrow-left"></i>
+    </button>
+    <div class="how-to-container d-flex justify-content-center align-items-center flex-column" [ngClass]="{'dark':isDarkMode}">
+        <h2>Welcome to Thoth!</h2>
+        <h6>We hope you enjoy taking the quiz and learning something new. Here are some instructions to help you get started.</h6>
+
+        <div class="instructions">
+            <ul>
+                <li *ngFor="let instruction of instructions">{{instruction.text}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

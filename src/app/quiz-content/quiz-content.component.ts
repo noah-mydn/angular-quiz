@@ -16,7 +16,7 @@ export class QuizContentComponent {
   currentQuestionIndex:number=0;
   isLoading : boolean = true;
   totalScore : number = 0;
-
+  
   private _isDarkMode : boolean = false;
 
   set isDarkMode (value:boolean) {
@@ -35,18 +35,7 @@ export class QuizContentComponent {
       //Getting DarkMode Value via Service
       this.sharedService.isDarkMode.subscribe(val => this.isDarkMode = val);
 
-      switch(this.difficultyLevel) {
-        case "EASY" : this.fetchEasyQuiz(); break;
-        case "MEDIUM" : this.fetchMediumQuiz(); break;
-        case "HARD" : this.fetchHardQuiz(); break;
-
-        default:
-          this.fetchEasyQuiz();
-      }
-
     }
-
-    
 
     ngAfterViewInit() : void{
 
@@ -54,9 +43,20 @@ export class QuizContentComponent {
       this.playerName = this.sharedService.playerName;
       this.difficultyLevel= this.sharedService.difficultyLevel; 
 
+      switch(this.difficultyLevel) {
+        case "EASY" : this.fetchEasyQuiz(); break;
+        case "MEDIUM" : this.fetchMediumQuiz(); break;
+        case "HARD" : this.fetchHardQuiz(); break;
+
+        default:
+          this.fetchEasyQuiz();
+
+          console.log(this.difficultyLevel);
+      }
+
     }
 
-    //For Api Calls
+    //For Data from Api Calls
      fetchEasyQuiz() : void {
       this.isLoading=true;
       this.http.get<any>("https://opentdb.com/api.php?amount=20&category=18&difficulty=easy")
@@ -71,7 +71,9 @@ export class QuizContentComponent {
                 //console.log(this.quizObjects);
               });
                
-      this.isLoading=false;
+              setTimeout(() => {
+                this.isLoading = false;
+            }, 3000);
     }
 
     fetchMediumQuiz() : void {
@@ -87,7 +89,9 @@ export class QuizContentComponent {
               })
                 //console.log(this.quizObjects);
                })
-      this.isLoading=false;
+               setTimeout(() => {
+                this.isLoading = false;
+            }, 3000);
     }
 
     fetchHardQuiz() : void {
@@ -103,7 +107,9 @@ export class QuizContentComponent {
                 })
                   //console.log(this.quizObjects);
                 })
-      this.isLoading=false;
+                setTimeout(() => {
+                  this.isLoading = false;
+              }, 3000);
     }
 
     
@@ -172,6 +178,13 @@ export class QuizContentComponent {
           // console.log("Chosen Selection",correctEl);
           // console.log("Selected choice",selectedEl);
       }
+  }
+
+  //Navigating back to home
+  navigateToHome(): void {
+    if (window.confirm("Are you sure you want to leave? Your progress will not be saved.")) {
+      this.route.navigate(['/home']);
+    }
   }
   
 }

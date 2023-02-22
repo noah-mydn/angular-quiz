@@ -35,6 +35,7 @@
             border: none;
             padding: 1em 0.2em;
             background-color: $secondary;
+            color: #fff;
            
         
             &:focus {
@@ -61,7 +62,7 @@
             font-family: $font-two;
 
             &:hover, &:focus {
-                box-shadow: 0 4px 4px 2px $secondary;
+                // box-shadow: 0 4px 4px 2px $secondary;
                 transform: translateY(-2px);
             }
         }
@@ -77,11 +78,11 @@
         }
 
         input[type='text'] {
-            background-color: $secondary;
+            background-color: $accent;
            
         
             &:focus {
-                background-color: $secondary;
+                background-color: $accent;
             }
         }
     }
@@ -93,7 +94,7 @@
             color:$dark-font-color;
 
             &:hover, &:focus {
-                box-shadow: 0 3px 3px 1px $primary
+                // box-shadow: 0 3px 3px 1px $primary
             }
         }
 

@@ -1,16 +1,37 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import {Router} from '@angular/router';
 import { SharedService } from './shared.service';
+import { trigger, animate, transition, style, query, group} from '@angular/animations';
+
+//RouterSlideAnimation 
+const routerSlideAnimation = 
+trigger('routerSlideAnimation', [
+  // Transition between two states
+  transition('* <=> *', [
+    
+    query(':enter, :leave', style({ position: 'fixed', width: '100%', zIndex: 2 }), { optional: true }),
+    // grouping to work in parallel
+    group([
+      query(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
+      ], { optional: true }),
+      query(':leave', [
+        style({ transform: 'translateX(0%)' }),
+        animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))
+      ], { optional: true })
+    ])
+  ])
+]);
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  
+  animations: [routerSlideAnimation]
 })
-export class AppComponent implements OnInit {
 
-  
+export class AppComponent implements OnInit {
   
   constructor(private renderer: Renderer2, private route: Router, private sharedService : SharedService) {
     this.sharedService.isDarkMode.next(this.isDarkMode);
@@ -40,7 +61,7 @@ export class AppComponent implements OnInit {
       }
 
       if(this.isVolumeEnable) {
-        this.audio.src = "assets/nightime.mp3";
+        this.audio.src = "assets/adventure.mp3";
         this.audio.load();
         this.audio.play();
       }
@@ -59,7 +80,7 @@ export class AppComponent implements OnInit {
       this.isVolumeEnable= !this.isVolumeEnable;
       if(this.isVolumeEnable) {
         this.volumeIcon = "bi bi-volume-up-fill";
-        this.audio.src = "assets/nightime.mp3";
+        this.audio.src = "assets/adventure.mp3";
         this.audio.load();
         this.audio.play();
       }

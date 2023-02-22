@@ -26,11 +26,15 @@ $secondary: #5957a3;
 $secondary_dark:#2b299c;
 $tertiary :#12233c;
 $tertiary_dark:#070b13;
-$accent: #b6b1d1;
+$accent: #1E3960;
 $dark-font-color: #c2e9fb;
-$light-font-color: #222222;
-$light-bg-color: linear-gradient(to top, $primary, $accent);
-$dark-bg-color: linear-gradient(90deg, $tertiary 10%, #120542 90%);
+$light-font-color: #2e2d44;
+//Background pattern from https://bgjar.com/rect-light
+
+$light-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='900' preserveAspectRatio='none' viewBox='0 0 1440 900'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2019%26quot%3b)' fill='none'%3e%3crect width='1440' height='900' x='0' y='0' fill='url(%23SvgjsLinearGradient2020)'%3e%3c/rect%3e%3cpath d='M12 900L912 0L1605 0L705 900z' fill='url(%23SvgjsLinearGradient2021)'%3e%3c/path%3e%3cpath d='M557.2 900L1457.2 0L1691.2 0L791.2 900z' fill='url(%23SvgjsLinearGradient2021)'%3e%3c/path%3e%3cpath d='M1382 900L482 0L195.5 0L1095.5 900z' fill='url(%23SvgjsLinearGradient2022)'%3e%3c/path%3e%3cpath d='M889.8 900L-10.200000000000045 0L-85.20000000000005 0L814.8 900z' fill='url(%23SvgjsLinearGradient2022)'%3e%3c/path%3e%3cpath d='M718.7061181613517 900L1440 178.7061181613517L1440 900z' fill='url(%23SvgjsLinearGradient2021)'%3e%3c/path%3e%3cpath d='M0 900L721.2938818386483 900L 0 178.7061181613517z' fill='url(%23SvgjsLinearGradient2022)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2019'%3e%3crect width='1440' height='900' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='9.37%25' y1='-15%25' x2='90.63%25' y2='115%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient2020'%3e%3cstop stop-color='rgba(161%2c 196%2c 253%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(182%2c 177%2c 209%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient2021'%3e%3cstop stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient2022'%3e%3cstop stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+$dark-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1140' height='900' preserveAspectRatio='none' viewBox='0 0 1140 900'%3e%3cg mask='url(%26quot%3b%23SvgjsMask6417%26quot%3b)' fill='none'%3e%3crect width='1140' height='900' x='0' y='0' fill='url(%23SvgjsLinearGradient6418)'%3e%3c/rect%3e%3cpath d='M45 900L945 0L1174.5 0L274.5 900z' fill='url(%23SvgjsLinearGradient6419)'%3e%3c/path%3e%3cpath d='M1095 900L195 0L-762 0L138 900z' fill='url(%23SvgjsLinearGradient6420)'%3e%3c/path%3e%3cpath d='M358.17286471071577 900L1140 118.17286471071577L1140 900z' fill='url(%23SvgjsLinearGradient6419)'%3e%3c/path%3e%3cpath d='M0 900L781.8271352892842 900L 0 118.17286471071577z' fill='url(%23SvgjsLinearGradient6420)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask6417'%3e%3crect width='1140' height='900' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='50%25' x2='100%25' y2='50%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient6418'%3e%3cstop stop-color='rgba(9%2c 50%2c 47%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(21%2c 34%2c 71%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient6419'%3e%3cstop stop-color='rgba(30%2c 57%2c 96%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(30%2c 57%2c 96%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient6420'%3e%3cstop stop-color='rgba(30%2c 57%2c 96%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(30%2c 57%2c 96%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+$small-light-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='600' height='900' preserveAspectRatio='none' viewBox='0 0 600 900'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2031%26quot%3b)' fill='none'%3e%3crect width='600' height='900' x='0' y='0' fill='url(%23SvgjsLinearGradient2032)'%3e%3c/rect%3e%3cpath d='M27 900L927 0L1182 0L282 900z' fill='url(%23SvgjsLinearGradient2033)'%3e%3c/path%3e%3cpath d='M212 900L1112 0L1143.5 0L243.5 900z' fill='url(%23SvgjsLinearGradient2033)'%3e%3c/path%3e%3cpath d='M583 900L-317 0L-518 0L382 900z' fill='url(%23SvgjsLinearGradient2034)'%3e%3c/path%3e%3cpath d='M396 900L-504 0L-600 0L300 900z' fill='url(%23SvgjsLinearGradient2034)'%3e%3c/path%3e%3cpath d='M137.2219351301096 900L600 437.2219351301096L600 900z' fill='url(%23SvgjsLinearGradient2033)'%3e%3c/path%3e%3cpath d='M0 900L462.7780648698904 900L 0 437.2219351301096z' fill='url(%23SvgjsLinearGradient2034)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2031'%3e%3crect width='600' height='900' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='-12.5%25' y1='8.33%25' x2='112.5%25' y2='91.67%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient2032'%3e%3cstop stop-color='rgba(161%2c 196%2c 253%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(182%2c 177%2c 209%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient2033'%3e%3cstop stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient2034'%3e%3cstop stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(168%2c 164%2c 229%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+$small-dark-bg-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='600' height='900' preserveAspectRatio='none' viewBox='0 0 600 900'%3e%3cg mask='url(%26quot%3b%23SvgjsMask6397%26quot%3b)' fill='none'%3e%3crect width='600' height='900' x='0' y='0' fill='url(%23SvgjsLinearGradient6398)'%3e%3c/rect%3e%3cpath d='M22 900L922 0L1168 0L268 900z' fill='url(%23SvgjsLinearGradient6399)'%3e%3c/path%3e%3cpath d='M199 900L1099 0L1238.5 0L338.5 900z' fill='url(%23SvgjsLinearGradient6399)'%3e%3c/path%3e%3cpath d='M591 900L-309 0L-601.5 0L298.5 900z' fill='url(%23SvgjsLinearGradient6400)'%3e%3c/path%3e%3cpath d='M379 900L-521 0L-650 0L250 900z' fill='url(%23SvgjsLinearGradient6400)'%3e%3c/path%3e%3cpath d='M205.2496926772859 900L600 505.2496926772859L600 900z' fill='url(%23SvgjsLinearGradient6399)'%3e%3c/path%3e%3cpath d='M0 900L394.7503073227141 900L 0 505.2496926772859z' fill='url(%23SvgjsLinearGradient6400)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask6397'%3e%3crect width='600' height='900' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='50%25' x2='100%25' y2='50%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient6398'%3e%3cstop stop-color='rgba(9%2c 50%2c 47%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(21%2c 34%2c 71%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient6399'%3e%3cstop stop-color='rgba(22%2c 43%2c 74%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(22%2c 43%2c 74%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient6400'%3e%3cstop stop-color='rgba(22%2c 43%2c 74%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(22%2c 43%2c 74%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
 
 html,body {
   box-sizing: border-box;
@@ -41,16 +45,28 @@ html,body {
 // Light Mode
 body {
   min-height: 100vh;
-  background-image: $light-bg-color;
+  background-image: $light-bg-image;
   color: $light-font-color;
+  background-size: cover;
 }
 
 // Dark mode
 .dark-mode {
-  background-image: $dark-bg-color;
+  background-image: $dark-bg-image;
   color: $dark-font-color;
 }
 
+
+@media only screen and (max-width:600px) {
+  body {
+    background-image: $small-light-bg-image;
+  }
+
+  .dark-mode {
+    background-image: $small-dark-bg-image;
+  }
+  
+}
 
 
 
