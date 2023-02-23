@@ -46,7 +46,7 @@ html,body {
 body {
   min-height: 100vh;
   background-image: $light-bg-image;
-  color: $light-font-color;
+  color: $accent;
   background-size: cover;
 }
 
@@ -54,6 +54,10 @@ body {
 .dark-mode {
   background-image: $dark-bg-image;
   color: $dark-font-color;
+}
+
+.font-two {
+  font-family: $font-two;
 }
 
 
