@@ -59,25 +59,25 @@ export class AppComponent implements OnInit {
         this.renderer.removeClass(this.body,'dark-mode')
       }
 
+    }
+
+    ngOnChanges() : void {
       if(this.isVolumeEnable) {
-        this.audio.src = "assets/adventure.mp3";
-        this.audio.load();
-        this.audio.play();
-
-        this.audio.addEventListener('ended', () => {
-          this.restartAudio();
-        });
-      }
-
-      else {
-        this.audio.pause();
-        this.audio.currentTime = 0;
+        this.playAudio();
       }
     }
 
-    private restartAudio(): void {
-      this.audio.currentTime = 0;
+    private playAudio() {
+      this.audio.src = "assets/adventure.mp3";
+      this.audio.load();
       this.audio.play();
+  
+      this.audio.addEventListener('ended', () => {
+        if(this.isVolumeEnable) {
+          this.audio.currentTime = 0;
+          this.audio.play();
+        }
+      });
     }
 
     navigateToHowTo() : void {
@@ -88,13 +88,8 @@ export class AppComponent implements OnInit {
       this.isVolumeEnable= !this.isVolumeEnable;
       if(this.isVolumeEnable) {
         this.volumeIcon = "bi bi-volume-up-fill";
-        this.audio.src = "assets/adventure.mp3";
-        this.audio.load();
-        this.audio.play();
+        this.playAudio();
 
-        this.audio.addEventListener('ended', () => {
-          this.restartAudio();
-        });
       }
 
       else {

@@ -42,6 +42,7 @@ The following areas were tested to ensure optimal functionality and user experie
 ### Functionality
 - Are quiz selections designed to be unclickable after a user has answered a question?
 - Does the totalScore increment correctly until the end of the quiz?
+- Does the music loops the playing if it's set to music play state?
 - Do the next and previous buttons inside the quiz work as intended?
 - Is the previous button designed to be unclickable when it's the first question?
 - Does the error alert display when a user fails to enter a value?
@@ -59,7 +60,7 @@ The following areas were tested to ensure optimal functionality and user experie
 ### Deployment
 Throughout development of this website, I used **Git** for version control system and constantly commited the changes made to the website. After committing the changes, they were then pushed on the Github where it was later deployed to view the live version using Git Pages. 
 
-[View Live Demo]()
+[View Live Demo](https://thoth-quiz.netlify.app)
 
 ### Screenshots
 
