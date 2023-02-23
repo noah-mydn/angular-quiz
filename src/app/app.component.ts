@@ -63,12 +63,21 @@ export class AppComponent implements OnInit {
         this.audio.src = "assets/adventure.mp3";
         this.audio.load();
         this.audio.play();
+
+        this.audio.addEventListener('ended', () => {
+          this.restartAudio();
+        });
       }
 
       else {
         this.audio.pause();
         this.audio.currentTime = 0;
       }
+    }
+
+    private restartAudio(): void {
+      this.audio.currentTime = 0;
+      this.audio.play();
     }
 
     navigateToHowTo() : void {
@@ -82,6 +91,10 @@ export class AppComponent implements OnInit {
         this.audio.src = "assets/adventure.mp3";
         this.audio.load();
         this.audio.play();
+
+        this.audio.addEventListener('ended', () => {
+          this.restartAudio();
+        });
       }
 
       else {
