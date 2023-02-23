@@ -46,7 +46,6 @@ export class AppComponent implements OnInit {
     body = document.querySelector('body');
 
     audio : any = new Audio();
-    
 
     ngOnInit() : void {
 
