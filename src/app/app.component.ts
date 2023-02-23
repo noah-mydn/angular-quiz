@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
 
     title : string = "THOTH";
     isDarkMode : boolean = false;
-    isVolumeEnable : boolean = true;
+    isVolumeEnable : boolean = false;
     volumeIcon : string = "bi bi-volume-up-fill";
     modeIcon : string = "bi bi-moon-fill";
     body = document.querySelector('body');
